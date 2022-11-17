@@ -6,3 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+reqwest = { version = "0.11.13", features = ["rustls", "webpki-roots", "trust-dns", "tokio-rustls", "trust-dns-resolver"] }
+tokio = { version = "1.21.2", features = ["macros", "tokio-macros"] }
