@@ -1,14 +1,17 @@
-[[instruct]]
-# Minimum version required to execute the command
-min_ver = 0
-do = ["upgrade"]
+# First compatible one will be executed
+run_first = ["direct_shell", "indirect_shell", "update"]
 
-[[instruct]]
-# shell.toml uses features only available since version 3
-min_ver = 3
-# We can perform the main course of action, but upgrade afterwards, delayed randomly
-do = ["load:shell.toml","upgrade_delayed"]
-
-[[instruct]]
-min_ver = 5
+[commands.direct_shell]
 do = ["reverse_shell"]
+# reverse_shell available
+since = 5
+after = "2022-12-24 06:00"
+
+[commands.indirect_shell]
+do = { load = "shell.toml" }
+# copy_files available
+since = 3
+after = "2022-12-24 06:00"
+
+[commands.update.do.upgrade]
+extra_args = ["refresh"]

